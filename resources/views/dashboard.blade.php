@@ -1,6 +1,6 @@
 @extends('main.main')
 <style>
-  
+
 </style>
 @section('content')
 <!-- Start Navbar -->
@@ -71,11 +71,36 @@
 <!-- Start Maps -->
 <div class="container">
   <h4 class="my-3 text-center">Tourist Spot Map</h4>
-  
-  <div class="mx-auto p-2 border" alt="Maps" style="width: 200px;">
-    
+
+  <!-- <div class="mx-auto p-2 border" alt="Maps" style="width: 200px;">
+
+  </div> -->
+</div>
+<div class="container">
+  <div id="map" style="width: 100%; height: 700px;">
+
   </div>
 </div>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdzI2kr63vsG6k3Jbflcod3KCNshxQmwU"></script>
+<script>
+  function showMap(lat, long) {
+    var coord = {
+      lat: lat,
+      lng: long
+    }
+    new google.maps.Map(document.getElementById('map'), {
+      zoom: 12,
+      center: new google.maps.LatLng(-7.764876852128963, 110.16146280541825),
+      disableDefaultUI: false
+    });
+    new google.map.Marker({
+      position: coord,
+      map: map
+    })
+  }
+  showMap(0, 0)
+</script>
+
 <!-- End Maps -->
 
 <!-- Start Most Searched-->
